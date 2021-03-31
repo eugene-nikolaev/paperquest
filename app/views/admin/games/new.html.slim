@@ -1,3 +1,6 @@
-= simple_form_for [:admin, Game.new(name: "Игра от #{Time.now()}")] do |f|
-  = f.input :name, input_html: { style: "width: 64em;" }
+h1 Create new game
+
+= simple_form_for :game, { url: admin_games_path, method: :post } do |f|
+  = f.input :name, input_html: { style: "width: 64em;", value: "Игра от #{Time.now}" }
+  = f.input :questions, as: :text, label: "Questions, separated by newlines", input_html: { rows: 20, style: "width: 64em;" }
   = f.button :submit,  class: "btn-primary"
