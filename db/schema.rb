@@ -10,13 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_29_164357) do
+ActiveRecord::Schema.define(version: 2021_04_04_121331) do
 
   create_table "games", force: :cascade do |t|
     t.string "name", null: false
     t.string "pincode", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "uuid", null: false
+    t.text "text", null: false
+    t.text "answered_positions"
   end
 
   create_table "tasks", force: :cascade do |t|
@@ -25,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_03_29_164357) do
     t.text "question"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "uuid", null: false
     t.index ["game_id"], name: "index_tasks_on_game_id"
   end
 

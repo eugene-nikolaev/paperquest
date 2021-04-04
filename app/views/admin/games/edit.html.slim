@@ -1,0 +1,7 @@
+h1 Edit game
+
+= simple_form_for :game, { url: admin_game_path(@game.uuid), method: :put } do |f|
+  = f.input :name, input_html: { style: "width: 64em;", value: @game.name }
+  = f.label :pincode, value: @game.pincode
+  = f.input :text, as: :text, label: "Questions, separated by newlines", input_html: { rows: 20, style: "width: 64em;" }, value: @game.text
+  = f.button :submit,  class: "btn-primary"

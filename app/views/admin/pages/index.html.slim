@@ -1,0 +1,9 @@
+h1 Paperquest
+
+= link_to "Add New Game", new_admin_game_path
+br
+br
+br
+= simple_form_for :game, { url: admin_search_games_path } do |f|
+	= f.input :pincode, input_html: { style: "width: 8em;" }
+	= f.button :submit, 'Show game', class: "btn-primary"

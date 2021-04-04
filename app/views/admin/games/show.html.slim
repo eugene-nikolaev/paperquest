@@ -1,0 +1,16 @@
+dl.dl-vertical
+  dt Name:
+  dd.col-sm-9 = @game.name
+  dt Pin code:
+  dd.col-sm-9 = @game.pincode
+  dt Answered positions:
+  dd.col-sm-9 = @game.answered_positions.sort.join(", ")
+
+= link_to "Edit", edit_admin_game_path(@game.uuid)
+
+- @game.tasks.each do |task|
+  h4 = task.position
+  = simple_format(task.question)
+  - url = task_url(task.uuid)
+  a href=url
+  	= url
