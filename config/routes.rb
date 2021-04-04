@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   	resources :games, only: [:new, :edit, :show, :create, :update] do
   		member do
   			get :print
+  			get :reset
   		end
   	end
   end

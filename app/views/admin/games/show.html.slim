@@ -9,7 +9,10 @@ dl.dl-vertical
 = link_to "Edit", edit_admin_game_path(@game.uuid)
 br
 = link_to "Print", print_admin_game_path(@game.uuid)
+br
+= link_to "Reset answered positions", reset_admin_game_path(@game.uuid)
 
 - @game.tasks.each do |task|
   h4 = task.position
   = simple_format(task.question)
+  = task_url(task.uuid)

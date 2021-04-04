@@ -86,4 +86,17 @@ class Admin::GamesController < ApplicationController
       )
     end
   end
+
+  def reset
+    @game = Game.find_by_uuid(params[:id])
+    if @game.blank?
+      flash[:alert] = "No such game"
+      redirect_to(admin_path)
+    else
+      @game.update(
+        answered_positions: []
+      )
+      redirect_to(admin_game_url(@game.uuid))
+    end
+  end
 end
