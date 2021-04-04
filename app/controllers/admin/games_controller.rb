@@ -23,7 +23,7 @@ class Admin::GamesController < ApplicationController
         @game.save!
         questions.each_with_index do |question, index|
           task = Task.new(
-            uuid:     SecureRandom.hex(32),
+            uuid:     SecureRandom.hex(10),
             game_id:  @game.id,
             position: index + 1,
             question: question
