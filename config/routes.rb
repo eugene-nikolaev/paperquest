@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   namespace :admin do
   	get '/', to: "pages#index"
   	post '/search', to: "pages#search", as: :search_games
-  	resources :games, only: [:new, :edit, :show, :create, :update]
+  	resources :games, only: [:new, :edit, :show, :create, :update] do
+  		member do
+  			get :print
+  		end
+  	end
   end
 
   resources :tasks, only: [:show]

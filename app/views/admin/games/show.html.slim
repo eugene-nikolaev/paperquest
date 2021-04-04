@@ -7,6 +7,8 @@ dl.dl-vertical
   dd.col-sm-9 = @game.answered_positions.sort.join(", ")
 
 = link_to "Edit", edit_admin_game_path(@game.uuid)
+br
+= link_to "Print", print_admin_game_path(@game.uuid)
 
 - @game.tasks.each do |task|
   h4 = task.position

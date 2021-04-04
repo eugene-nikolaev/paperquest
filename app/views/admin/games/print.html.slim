@@ -1,0 +1,6 @@
+table
+
+- @svgs.each_with_index do |svg, index|
+	.qrcode style="padding: 1em;"
+    span = index + 1
+    span = svg.html_safe
